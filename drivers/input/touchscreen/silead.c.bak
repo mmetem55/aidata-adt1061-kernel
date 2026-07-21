@@ -65,10 +65,6 @@
 
 #define SILEAD_MAX_FINGERS	10
 
-#ifndef CONFIG_ELINK_SILEAD_LISTS_NAME
-#define CONFIG_ELINK_SILEAD_LISTS_NAME ""
-#endif
-
 enum silead_ts_power {
 	SILEAD_POWER_ON  = 1,
 	SILEAD_POWER_OFF = 0
@@ -101,7 +97,7 @@ static int silead_ts_request_input_dev(struct silead_ts_data *data)
 	data->input = devm_input_allocate_device(dev);
 	if (!data->input) {
 		dev_err(dev,
-				"Failed to allocate input device\n");
+			"Failed to allocate input device\n");
 		return -ENOMEM;
 	}
 
@@ -110,8 +106,8 @@ static int silead_ts_request_input_dev(struct silead_ts_data *data)
 	touchscreen_parse_properties(data->input, true, &data->prop);
 
 	input_mt_init_slots(data->input, data->max_fingers,
-						INPUT_MT_DIRECT | INPUT_MT_DROP_UNUSED |
-						INPUT_MT_TRACK);
+			    INPUT_MT_DIRECT | INPUT_MT_DROP_UNUSED |
+			    INPUT_MT_TRACK);
 
 	data->input->name = SILEAD_TS_NAME;
 	data->input->phys = "input/ts";
@@ -127,7 +123,7 @@ static int silead_ts_request_input_dev(struct silead_ts_data *data)
 }
 
 static void silead_ts_set_power(struct i2c_client *client,
-								enum silead_ts_power state)
+				enum silead_ts_power state)
 {
 	struct silead_ts_data *data = i2c_get_clientdata(client);
 
@@ -146,7 +142,7 @@ static void silead_ts_read_data(struct i2c_client *client)
 	int touch_nr, error, i;
 
 	error = i2c_smbus_read_i2c_block_data(client, SILEAD_REG_DATA,
-										  SILEAD_TS_DATA_LEN, buf);
+					      SILEAD_TS_DATA_LEN, buf);
 	if (error < 0) {
 		dev_err(dev, "Data read error %d\n", error);
 		return;
@@ -155,7 +151,7 @@ static void silead_ts_read_data(struct i2c_client *client)
 	touch_nr = buf[0];
 	if (touch_nr > data->max_fingers) {
 		dev_warn(dev, "More touches reported then supported %d > %d\n",
-				 touch_nr, data->max_fingers);
+			 touch_nr, data->max_fingers);
 		touch_nr = data->max_fingers;
 	}
 
@@ -163,10 +159,10 @@ static void silead_ts_read_data(struct i2c_client *client)
 	for (i = 0; i < touch_nr; i++, bufp += SILEAD_POINT_DATA_LEN) {
 		/* Bits 4-7 are the touch id */
 		data->id[i] = (bufp[SILEAD_POINT_X_MSB_OFF] &
-		SILEAD_TOUCH_ID_MASK) >> 4;
+			       SILEAD_TOUCH_ID_MASK) >> 4;
 		touchscreen_set_mt_pos(&data->pos[i], &data->prop,
-							   get_unaligned_le16(&bufp[SILEAD_POINT_X_OFF]) & 0xfff,
-							   get_unaligned_le16(&bufp[SILEAD_POINT_Y_OFF]) & 0xfff);
+			get_unaligned_le16(&bufp[SILEAD_POINT_X_OFF]) & 0xfff,
+			get_unaligned_le16(&bufp[SILEAD_POINT_Y_OFF]) & 0xfff);
 	}
 
 	input_mt_assign_slots(input, data->slots, data->pos, touch_nr, 0);
@@ -178,7 +174,7 @@ static void silead_ts_read_data(struct i2c_client *client)
 		input_report_abs(input, ABS_MT_POSITION_Y, data->pos[i].y);
 
 		dev_dbg(dev, "x=%d y=%d hw_id=%d sw_id=%d\n", data->pos[i].x,
-				data->pos[i].y, data->id[i], data->slots[i]);
+			data->pos[i].y, data->id[i], data->slots[i]);
 	}
 
 	input_mt_sync_frame(input);
@@ -191,32 +187,32 @@ static int silead_ts_init(struct i2c_client *client)
 	int error;
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_RESET,
-									  SILEAD_CMD_RESET);
+					  SILEAD_CMD_RESET);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_TOUCH_NR,
-									  data->max_fingers);
+					data->max_fingers);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_CLOCK,
-									  SILEAD_CLOCK);
+					  SILEAD_CLOCK);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_RESET,
-									  SILEAD_CMD_START);
+					  SILEAD_CMD_START);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	return 0;
 
-	i2c_write_err:
+i2c_write_err:
 	dev_err(&client->dev, "Registers clear error %d\n", error);
 	return error;
 }
@@ -226,26 +222,26 @@ static int silead_ts_reset(struct i2c_client *client)
 	int error;
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_RESET,
-									  SILEAD_CMD_RESET);
+					  SILEAD_CMD_RESET);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_CLOCK,
-									  SILEAD_CLOCK);
+					  SILEAD_CLOCK);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	error = i2c_smbus_write_byte_data(client, SILEAD_REG_POWER,
-									  SILEAD_CMD_START);
+					  SILEAD_CMD_START);
 	if (error)
 		goto i2c_write_err;
 	usleep_range(SILEAD_CMD_SLEEP_MIN, SILEAD_CMD_SLEEP_MAX);
 
 	return 0;
 
-	i2c_write_err:
+i2c_write_err:
 	dev_err(&client->dev, "Chip reset error %d\n", error);
 	return error;
 }
@@ -287,9 +283,9 @@ static int silead_ts_load_fw(struct i2c_client *client)
 
 	for (i = 0; i < fw_size; i++) {
 		error = i2c_smbus_write_i2c_block_data(client,
-											   fw_data[i].offset,
-										 4,
-										 (u8 *)&fw_data[i].val);
+						       fw_data[i].offset,
+						       4,
+						       (u8 *)&fw_data[i].val);
 		if (error) {
 			dev_err(dev, "Firmware load error %d\n", error);
 			break;
@@ -306,7 +302,7 @@ static u32 silead_ts_get_status(struct i2c_client *client)
 	__le32 status;
 
 	error = i2c_smbus_read_i2c_block_data(client, SILEAD_REG_STATUS,
-										  sizeof(status), (u8 *)&status);
+					      sizeof(status), (u8 *)&status);
 	if (error < 0) {
 		dev_err(&client->dev, "Status read error %d\n", error);
 		return error;
@@ -322,7 +318,7 @@ static int silead_ts_get_id(struct i2c_client *client)
 	int error;
 
 	error = i2c_smbus_read_i2c_block_data(client, SILEAD_REG_ID,
-										  sizeof(chip_id), (u8 *)&chip_id);
+					      sizeof(chip_id), (u8 *)&chip_id);
 	if (error < 0) {
 		dev_err(&client->dev, "Chip ID read error %d\n", error);
 		return error;
@@ -365,7 +361,7 @@ static int silead_ts_setup(struct i2c_client *client)
 	status = silead_ts_get_status(client);
 	if (status != SILEAD_STATUS_OK) {
 		dev_err(&client->dev,
-				"Initialization error, status: 0x%X\n", status);
+			"Initialization error, status: 0x%X\n", status);
 		return -ENODEV;
 	}
 
@@ -390,7 +386,7 @@ static void silead_ts_read_props(struct i2c_client *client)
 	int error;
 
 	error = device_property_read_u32(dev, "silead,max-fingers",
-									 &data->max_fingers);
+					 &data->max_fingers);
 	if (error) {
 		dev_dbg(dev, "Max fingers read error %d\n", error);
 		data->max_fingers = 5; /* Most devices handle up-to 5 fingers */
@@ -399,14 +395,14 @@ static void silead_ts_read_props(struct i2c_client *client)
 	error = device_property_read_string(dev, "firmware-name", &str);
 	if (!error)
 		snprintf(data->fw_name, sizeof(data->fw_name),
-				 "silead/%s", str);
-		else
-			dev_dbg(dev, "Firmware file name read error. Using default.");
+			 "silead/%s", str);
+	else
+		dev_dbg(dev, "Firmware file name read error. Using default.");
 }
 
 #ifdef CONFIG_ACPI
 static int silead_ts_set_default_fw_name(struct silead_ts_data *data,
-										 const struct i2c_device_id *id)
+					 const struct i2c_device_id *id)
 {
 	const struct acpi_device_id *acpi_id;
 	struct device *dev = &data->client->dev;
@@ -418,23 +414,23 @@ static int silead_ts_set_default_fw_name(struct silead_ts_data *data,
 			return -ENODEV;
 
 		snprintf(data->fw_name, sizeof(data->fw_name),
-				 "silead/%s.fw", acpi_id->id);
+			 "silead/%s.fw", acpi_id->id);
 
 		for (i = 0; i < strlen(data->fw_name); i++)
 			data->fw_name[i] = tolower(data->fw_name[i]);
 	} else {
 		snprintf(data->fw_name, sizeof(data->fw_name),
-				 "silead/%s.fw", id->name);
+			 "silead/%s.fw", id->name);
 	}
 
 	return 0;
 }
 #else
 static int silead_ts_set_default_fw_name(struct silead_ts_data *data,
-										 const struct i2c_device_id *id)
+					 const struct i2c_device_id *id)
 {
 	snprintf(data->fw_name, sizeof(data->fw_name),
-			 "silead/%s.fw", id->name);
+		 "silead/%s.fw", id->name);
 	return 0;
 }
 #endif
@@ -447,23 +443,23 @@ static void silead_disable_regulator(void *arg)
 }
 
 static int silead_ts_probe(struct i2c_client *client,
-						   const struct i2c_device_id *id)
+			   const struct i2c_device_id *id)
 {
 	struct silead_ts_data *data;
 	struct device *dev = &client->dev;
 	int error;
 
 	if (!i2c_check_functionality(client->adapter,
-		I2C_FUNC_I2C |
-		I2C_FUNC_SMBUS_READ_I2C_BLOCK |
-		I2C_FUNC_SMBUS_WRITE_I2C_BLOCK)) {
+				     I2C_FUNC_I2C |
+				     I2C_FUNC_SMBUS_READ_I2C_BLOCK |
+				     I2C_FUNC_SMBUS_WRITE_I2C_BLOCK)) {
 		dev_err(dev, "I2C functionality check failed\n");
-	return -ENXIO;
-		}
+		return -ENXIO;
+	}
 
-		data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-		if (!data)
-			return -ENOMEM;
+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+	if (!data)
+		return -ENOMEM;
 
 	i2c_set_clientdata(client, data);
 	data->client = client;
@@ -474,18 +470,14 @@ static int silead_ts_probe(struct i2c_client *client,
 
 	silead_ts_read_props(client);
 
-	if (CONFIG_ELINK_SILEAD_LISTS_NAME[0] != '\0')
-		snprintf(data->fw_name, sizeof(data->fw_name), "%s",
-				 CONFIG_ELINK_SILEAD_LISTS_NAME);
-
-		/* We must have the IRQ provided by DT or ACPI subsytem */
-		if (client->irq <= 0)
-			return -ENODEV;
+	/* We must have the IRQ provided by DT or ACPI subsytem */
+	if (client->irq <= 0)
+		return -ENODEV;
 
 	data->regulators[0].supply = "vddio";
 	data->regulators[1].supply = "avdd";
 	error = devm_regulator_bulk_get(dev, ARRAY_SIZE(data->regulators),
-									data->regulators);
+					data->regulators);
 	if (error)
 		return error;
 
@@ -494,7 +486,7 @@ static int silead_ts_probe(struct i2c_client *client,
 	 * to keep the chip powered otherwise it forgets its firmware.
 	 */
 	error = regulator_bulk_enable(ARRAY_SIZE(data->regulators),
-								  data->regulators);
+				      data->regulators);
 	if (error)
 		return error;
 
@@ -519,8 +511,8 @@ static int silead_ts_probe(struct i2c_client *client,
 		return error;
 
 	error = devm_request_threaded_irq(dev, client->irq,
-									  NULL, silead_ts_threaded_irq_handler,
-								   IRQF_ONESHOT, client->name, data);
+					  NULL, silead_ts_threaded_irq_handler,
+					  IRQF_ONESHOT, client->name, data);
 	if (error) {
 		if (error != -EPROBE_DEFER)
 			dev_err(dev, "IRQ request failed %d\n", error);

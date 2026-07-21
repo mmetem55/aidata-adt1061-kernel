@@ -1,0 +1,212 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Aidata Adt1061 LCD Panel
+ */
+
+/ {
+    lcds {
+        nt36xxx_sy101wumlh2_boe {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x1e 0x00 0xc8 0x01 0x32>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 0a 00 01 28 13 78 00 01 10];
+            sprd,sleep-out-command = [13 78 00 01 11 13 32 00 01 29];
+            power-off-sequence = <0x08 0x14 0x02 0x05 0x01 0x05 0x00 0x1e>;
+            sprd,initial-command = [23 0a 00 02 ff 20 23 00 00 02 fb 01 23 00 00 02 05 d1 23 00 00 02 07 8c 23 00 00 02 08 46 23 00 00 02 0d 63 23 00 00 02 0e ac 23 00 00 02 0f 5f 23 00 00 02 89 79 23 00 00 02 8a 79 23 00 00 02 8b 79 23 00 00 02 8c 79 23 00 00 02 95 ff 23 00 00 02 96 ff 23 00 00 02 30 11 23 00 00 02 58 60 23 00 00 02 6d 66 23 00 00 02 75 a2 23 00 00 02 77 b3 39 00 00 11 b0 00 b6 00 bf 00 d3 00 e4 00 f2 01 01 01 0d 01 1a 39 00 00 11 b1 01 27 01 4f 01 71 01 a6 01 d3 02 19 02 52 02 54 39 00 00 11 b2 02 8d 02 cf 02 f7 03 2c 03 4d 03 79 03 86 03 95 39 00 00 0d b3 03 a4 03 b4 03 d5 03 ed 03 fe 03 ff 39 00 00 11 b4 00 16 00 30 00 57 00 77 00 93 00 ab 00 c1 00 d4 39 00 00 11 b5 00 e5 01 1f 01 4b 01 8e 01 c0 02 0d 02 4b 02 4d 39 00 00 11 b6 02 88 02 cb 02 f2 03 27 03 4a 03 74 03 83 03 91 39 00 00 0d b7 03 a1 03 b2 03 d2 03 ec 03 fe 03 ff 39 00 00 11 b8 00 08 00 2c 00 57 00 7a 00 99 00 b1 00 c7 00 dc 39 00 00 11 b9 00 ee 01 28 01 54 01 96 01 c7 02 13 02 4f 02 51 39 00 00 11 ba 02 8b 02 cd 02 f4 03 2a 03 4d 03 78 03 86 03 94 39 00 00 0d bb 03 a4 03 b4 03 d5 03 ec 03 fe 03 ff 23 00 00 02 ff 21 23 00 00 02 fb 01 39 00 00 11 b0 00 ae 00 b7 00 cb 00 dc 00 ea 00 f9 01 05 01 12 39 00 00 11 b1 01 1f 01 47 01 69 01 9e 01 cb 02 11 02 4a 02 4c 39 00 00 11 b2 02 85 02 c7 02 ef 03 24 03 45 03 71 03 7e 03 8d 39 00 00 0d b3 03 9c 03 ac 03 cd 03 e5 03 f6 03 f7 39 00 00 11 b4 00 0e 00 28 00 4f 00 6f 00 8b 00 a3 00 b9 00 cc 39 00 00 11 b5 00 dd 01 17 01 43 01 86 01 b8 02 05 02 43 02 45 39 00 00 11 b6 02 80 02 c3 02 ea 03 1f 03 42 03 6c 03 7b 03 89 39 00 00 0d b7 03 99 03 aa 03 ca 03 e4 03 f6 03 f7 39 00 00 11 b8 00 00 00 24 00 4f 00 72 00 91 00 a9 00 bf 00 d4 39 00 00 11 b9 00 e6 01 20 01 4c 01 8e 01 bf 02 0b 02 47 02 49 39 00 00 11 ba 02 83 02 c5 02 ec 03 22 03 45 03 70 03 7e 03 8c 39 00 00 0d bb 03 9c 03 ac 03 cd 03 e4 03 f6 03 f7 23 00 00 02 ff 24 23 00 00 02 fb 01 23 00 00 02 00 00 23 00 00 02 01 00 23 00 00 02 02 22 23 00 00 02 03 08 23 00 00 02 04 04 23 00 00 02 05 23 23 00 00 02 06 21 23 00 00 02 07 20 23 00 00 02 08 0f 23 00 00 02 09 0f 23 00 00 02 0a 0e 23 00 00 02 0b 0e 23 00 00 02 0c 0d 23 00 00 02 0d 0d 23 00 00 02 0e 0c 23 00 00 02 0f 0c 23 00 00 02 10 00 23 00 00 02 11 00 23 00 00 02 12 00 23 00 00 02 13 00 23 00 00 02 14 00 23 00 00 02 15 00 23 00 00 02 16 00 23 00 00 02 17 00 23 00 00 02 18 22 23 00 00 02 19 08 23 00 00 02 1a 04 23 00 00 02 1b 23 23 00 00 02 1c 21 23 00 00 02 1d 20 23 00 00 02 1e 0f 23 00 00 02 1f 0f 23 00 00 02 20 0e 23 00 00 02 21 0e 23 00 00 02 22 0d 23 00 00 02 23 0d 23 00 00 02 24 0c 23 00 00 02 25 0c 23 00 00 02 26 00 23 00 00 02 27 00 23 00 00 02 28 00 23 00 00 02 29 00 23 00 00 02 2a 00 23 00 00 02 2b 00 23 00 00 02 2f 54 23 00 00 02 33 54 23 00 00 02 3a 9a 23 00 00 02 3b a0 23 00 00 02 3d 91 23 00 00 02 3f 08 23 00 00 02 43 08 23 00 00 02 4a 9a 23 00 00 02 4b a0 23 00 00 02 4c 91 23 00 00 02 4d 43 23 00 00 02 4e 21 23 00 00 02 51 12 23 00 00 02 52 34 39 00 00 03 55 86 07 23 00 00 02 56 04 23 00 00 02 58 21 23 00 00 02 59 30 23 00 00 02 5a ba 23 00 00 02 5b 96 39 00 00 03 5e 00 12 23 00 00 02 5f 00 23 00 00 02 65 82 23 00 00 02 ad 00 23 00 00 02 ae 01 23 00 00 02 af 0c 23 00 00 02 b0 16 23 00 00 02 b1 0b 23 00 00 02 b2 15 23 00 00 02 b3 00 23 00 00 02 c4 20 39 00 00 0d b6 05 00 05 00 00 00 00 00 05 05 00 00 23 00 00 02 60 96 23 00 00 02 61 80 23 00 00 02 63 70 23 00 00 02 92 df 23 00 00 02 93 1a 23 00 00 02 94 0a 23 00 00 02 d7 55 23 00 00 02 da 0a 23 00 00 02 de 08 23 00 00 02 db 05 23 00 00 02 dc df 23 00 00 02 dd 22 23 00 00 02 df 05 23 00 00 02 e0 df 23 00 00 02 e1 05 23 00 00 02 e2 df 23 00 00 02 e3 05 23 00 00 02 e4 df 23 00 00 02 e5 05 23 00 00 02 e6 df 23 00 00 02 5c 88 23 00 00 02 5d 08 23 00 00 02 8d 88 23 00 00 02 8e 08 23 00 00 02 b5 90 23 00 00 02 ff 25 23 00 00 02 fb 01 23 00 00 02 05 04 23 00 00 02 19 07 23 00 00 02 1f ba 23 00 00 02 20 96 23 00 00 02 26 ba 23 00 00 02 27 96 23 00 00 02 33 ba 23 00 00 02 34 96 23 00 00 02 3f e0 23 00 00 02 40 00 23 00 00 02 44 00 23 00 00 02 45 40 23 00 00 02 48 ba 23 00 00 02 49 96 23 00 00 02 5b 00 23 00 00 02 5c 00 23 00 00 02 5d 00 23 00 00 02 5e d0 23 00 00 02 61 ba 23 00 00 02 62 96 23 00 00 02 f1 10 23 00 00 02 ff 2a 23 00 00 02 fb 01 23 00 00 02 64 16 23 00 00 02 67 16 23 00 00 02 6a 16 23 00 00 02 73 9e 23 00 00 02 76 16 23 00 00 02 79 9e 23 00 00 02 7c 16 23 00 00 02 a2 f3 23 00 00 02 a3 ff 23 00 00 02 a4 ff 23 00 00 02 a5 ff 23 00 00 02 d6 08 23 00 00 02 ff 26 23 00 00 02 fb 01 23 00 00 02 00 a1 23 00 00 02 0a f2 23 00 00 02 04 28 23 00 00 02 06 2a 23 00 00 02 0c 11 23 00 00 02 0d 00 23 00 00 02 0f 09 23 00 00 02 11 10 23 00 00 02 12 50 23 00 00 02 13 6a 23 00 00 02 14 76 23 00 00 02 15 00 23 00 00 02 16 90 23 00 00 02 17 a0 23 00 00 02 18 86 23 00 00 02 19 0f 23 00 00 02 1a 9c 23 00 00 02 1b 0e 23 00 00 02 1c dc 23 00 00 02 22 00 23 00 00 02 23 00 23 00 00 02 2a 0f 23 00 00 02 2b 9c 23 00 00 02 1d 00 23 00 00 02 1e df 23 00 00 02 1f df 23 00 00 02 24 00 23 00 00 02 25 df 23 00 00 02 2f 05 23 00 00 02 30 df 23 00 00 02 31 00 23 00 00 02 32 df 23 00 00 02 39 00 23 00 00 02 3a df 23 00 00 02 20 01 23 00 00 02 33 11 23 00 00 02 34 78 23 00 00 02 35 16 23 00 00 02 c8 00 23 00 00 02 c9 00 23 00 00 02 ca 4e 23 00 00 02 cb 00 23 00 00 02 a9 6d 23 00 00 02 aa 71 23 00 00 02 ab 73 23 00 00 02 ac 76 23 00 00 02 ff 27 23 00 00 02 fb 01 23 00 00 02 58 00 23 00 00 02 00 00 23 00 00 02 78 00 23 00 00 02 c3 00 23 00 00 02 d1 24 23 00 00 02 d2 30 23 00 00 02 ff 23 23 00 00 02 fb 01 23 00 00 02 00 80 23 00 00 02 05 2a 23 00 00 02 07 00 23 00 00 02 11 01 23 00 00 02 12 68 23 00 00 02 15 e9 23 00 00 02 16 0c 23 00 00 02 2b 10 23 00 00 02 58 ff 23 00 00 02 59 ff 23 00 00 02 5a fe 23 00 00 02 5b fd 23 00 00 02 5c fd 23 00 00 02 5d fc 23 00 00 02 5e fb 23 00 00 02 5f f9 23 00 00 02 60 f7 23 00 00 02 61 f3 23 00 00 02 62 ea 23 00 00 02 63 e6 23 00 00 02 64 e0 23 00 00 02 65 dd 23 00 00 02 66 db 23 00 00 02 67 d9 23 00 00 02 19 00 23 00 00 02 1a 00 23 00 00 02 1b 08 23 00 00 02 1c 0a 23 00 00 02 1d 0c 23 00 00 02 1e 12 23 00 00 02 1f 16 23 00 00 02 20 1a 23 00 00 02 21 1c 23 00 00 02 22 20 23 00 00 02 23 24 23 00 00 02 24 28 23 00 00 02 25 2c 23 00 00 02 26 30 23 00 00 02 27 38 23 00 00 02 28 3c 23 00 00 02 ff e0 23 00 00 02 fb 01 23 00 00 02 14 60 23 00 00 02 16 c0 23 00 00 02 ff f0 23 00 00 02 fb 01 23 00 00 02 3a 08 23 00 00 02 ff 10 23 00 00 02 fb 01 23 00 00 02 b9 01 23 00 00 02 ff 20 23 00 00 02 fb 01 23 00 00 02 18 40 23 00 00 02 ff 10 23 00 00 02 fb 01 23 00 00 02 b9 02 23 00 00 02 35 00 39 00 00 03 51 0f ff 23 00 00 02 53 2c 23 00 00 02 55 00 23 00 00 02 bb 13 39 00 00 06 3b 03 0a 1a 04 04 23 00 00 02 ff 25 23 00 00 02 ec 00 23 00 00 02 ff 10 23 00 00 02 fb 01 13 78 00 01 11 13 32 00 01 29];
+            sprd,reset-off-sequence = <0x00 0x05>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x1e 0x01 0x05 0x02 0x05 0x08 0x14>;
+            sprd,esd-check-mode = <0x00>;
+            sprd,height-mm = <0xe1>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x87>;
+            sprd,esd-check-enable = <0x00>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x1a>;
+                    vback-porch = <0x20>;
+                    hsync-len = <0x04>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x02>;
+                    hback-porch = <0x36>;
+                    hfront-porch = <0x41>;
+                };
+            };
+        };
+
+        hx8279_wd101fxm40ab_c7_wuxga_inx101 {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x1e 0x00 0x1e 0x01 0x78>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 14 00 01 28 13 64 00 01 10];
+            sprd,esd-check-period = <0x7d0>;
+            sprd,sleep-out-command = [13 78 00 01 11 13 14 00 01 29];
+            power-off-sequence = <0x01 0x05 0x00 0x00>;
+            sprd,esd-check-regs = <0x0a>;
+            sprd,initial-command = <0x23000002 0xb0002300 0x2c20c 0x23000002 0xc40c2300 0x2bd30 0x23000002 0xb0022300 0x2c000 0x23000002 0xc10a2300 0x2c213 0x23000002 0xc3202300 0x2c41f 0x23000002 0xc51e2300 0x2c61d 0x23000002 0xc71c2300 0x2c819 0x23000002 0xc9172300 0x2ca17 0x23000002 0xcb182300 0x2cc1a 0x23000002 0xcd1e2300 0x2ce20 0x23000002 0xcf232300 0x2d007 0x23000002 0xd1002300 0x2d200 0x23000002 0xd30a2300 0x2d413 0x23000002 0xd5202300 0x2d61f 0x23000002 0xd71e2300 0x2d81d 0x23000002 0xd91c2300 0x2da19 0x23000002 0xdb172300 0x2dc17 0x23000002 0xdd182300 0x2de1a 0x23000002 0xdf1e2300 0x2e020 0x23000002 0xe1232300 0x2e207 0x23000002 0xb0012300 0x2d301 0x23000002 0xe7022300 0x2d205 0x23000002 0xe6062300 0x2d107 0x23000002 0xe5082300 0x2d009 0x23000002 0xe40a2300 0x2cf0b 0x23000002 0xe30c2300 0x2ce1b 0x23000002 0xe21c2300 0x2cd1d 0x23000002 0xe11e2300 0x2ca11 0x23000002 0xc9122300 0x2de11 0x23000002 0xdd122300 0x2c80d 0x23000002 0xdc0e2300 0x2c30f 0x23000002 0xd7102300 0x2c600 0x23000002 0xc7002300 0x2c400 0x23000002 0xc5002300 0x2d800 0x23000002 0xd9002300 0x2da00 0x23000002 0xdb002300 0x2b003 0x23000002 0xbe032300 0x2cc44 0x23000002 0xc8072300 0x2c905 0x23000002 0xca422300 0x2e4f0 0x23000002 0xe50a2300 0x2db01 0x23000002 0xd9012300 0x2d401 0x23000002 0xd5002300 0x2d603 0x23000002 0xd7042300 0x2d204 0x23000002 0xd3042300 0x2cf60 0x23000002 0xcd3e2300 0x2b000 0x23000002 0xb2401378 0x11113 0x14000129>;
+            sprd,reset-off-sequence = <0x00 0x0a>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x00 0x01 0x05>;
+            sprd,esd-check-mode = <0x00>;
+            sprd,height-mm = <0xd9>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x88>;
+            sprd,esd-return-code = <0x9c>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x0e>;
+                    vback-porch = <0x13>;
+                    hsync-len = <0x18>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x02>;
+                    hback-porch = <0x50>;
+                    hfront-porch = <0x3c>;
+                };
+            };
+        };
+
+        hx8279_k101_mm2qa01_a_wuxga_inx101 {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x1e 0x00 0x1e 0x01 0x78>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 14 00 01 28 13 64 00 01 10];
+            sprd,esd-check-period = <0x7d0>;
+            sprd,sleep-out-command = [13 78 00 01 11 13 14 00 01 29];
+            power-off-sequence = <0x01 0x05 0x00 0x00>;
+            sprd,esd-check-regs = <0x0a>;
+            sprd,initial-command = <0x23000002 0xb0012300 0x2c30f 0x23000002 0xc4002300 0x2c500 0x23000002 0xc6002300 0x2c700 0x23000002 0xc80d2300 0x2c912 0x23000002 0xca112300 0x2cd1d 0x23000002 0xce1b2300 0x2cf0b 0x23000002 0xd0092300 0x2d107 0x23000002 0xd2052300 0x2d301 0x23000002 0xd7102300 0x2d800 0x23000002 0xd9002300 0x2da00 0x23000002 0xdb002300 0x2dc0e 0x23000002 0xdd122300 0x2de11 0x23000002 0xe11e2300 0x2e21c 0x23000002 0xe30c2300 0x2e40a 0x23000002 0xe5082300 0x2e606 0x23000002 0xe7022300 0x2b003 0x23000002 0xbe032300 0x2cc44 0x23000002 0xc8072300 0x2c905 0x23000002 0xca422300 0x2cd3e 0x23000002 0xcf602300 0x2d204 0x23000002 0xd3042300 0x2d401 0x23000002 0xd5002300 0x2d603 0x23000002 0xd7042300 0x2d901 0x23000002 0xdb012300 0x2e4f0 0x23000002 0xe50a2300 0x2b000 0x23000002 0xbd632300 0x2c208 0x23000002 0xc4102300 0x2b002 0x23000002 0xc0002300 0x2c10a 0x23000002 0xc2202300 0x2c324 0x23000002 0xc4232300 0x2c529 0x23000002 0xc6232300 0x2c71c 0x23000002 0xc8192300 0x2c917 0x23000002 0xca172300 0x2cb18 0x23000002 0xcc1a2300 0x2cd1e 0x23000002 0xce202300 0x2cf23 0x23000002 0xd0072300 0x2d100 0x23000002 0xd2002300 0x2d30a 0x23000002 0xd4132300 0x2d51c 0x23000002 0xd61a2300 0x2d713 0x23000002 0xd8172300 0x2d91c 0x23000002 0xda192300 0x2db17 0x23000002 0xdc172300 0x2dd18 0x23000002 0xde1a2300 0x2df1e 0x23000002 0xe0202300 0x2e123 0x23000002 0xe2071378 0x11113 0x14000129>;
+            sprd,reset-off-sequence = <0x00 0x0a>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x00 0x01 0x05>;
+            sprd,esd-check-mode = <0x00>;
+            sprd,height-mm = <0xd9>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x88>;
+            sprd,esd-return-code = <0x9c>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x0e>;
+                    vback-porch = <0x13>;
+                    hsync-len = <0x18>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x02>;
+                    hback-porch = <0x50>;
+                    hfront-porch = <0x3c>;
+                };
+            };
+        };
+
+        ek79208_sl101pm32d1595_a00_wuxga {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x1e 0x00 0x1e 0x01 0x78>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 0a 00 01 28 13 78 00 01 10];
+            sprd,sleep-out-command = [13 78 00 01 11 13 14 00 01 29];
+            power-off-sequence = <0x01 0x05 0x00 0x00>;
+            sprd,initial-command = [23 00 00 02 b0 0f 23 00 00 02 cd aa 23 00 00 02 30 00 23 00 00 02 32 00 23 00 00 02 3a 8f 23 00 00 02 3d 12 23 00 00 02 3f 1f 23 00 00 02 40 0f 23 00 00 02 30 01 23 00 00 02 00 01 23 00 00 02 31 66 23 00 00 02 32 10 23 00 00 02 33 74 23 00 00 02 35 00 23 00 00 02 36 01 39 00 00 0d 3a 00 00 10 10 00 00 10 10 00 00 10 10 39 00 00 0c 3b 22 19 1d 23 23 21 20 17 15 13 11 39 00 00 0b 3c 0f 0d 0b 09 05 01 23 23 23 00 39 00 00 0c 3d 22 18 1c 23 23 21 20 16 14 12 10 39 00 00 0b 3e 0e 0c 0a 08 04 00 23 23 23 00 23 00 00 02 3f 01 23 00 00 02 40 b8 23 00 00 02 41 01 23 00 00 02 46 87 23 00 00 02 30 02 39 00 00 0b 3a 3e 32 2e 2c 35 34 33 35 3a 3d 39 00 00 08 3b 3b 39 37 2b 1e 0f 00 39 00 00 0b 3c 3e 32 2e 2c 35 34 33 35 3a 3d 39 00 00 08 3d 3b 39 37 2b 1e 0f 00 39 00 00 0b 3e 00 00 00 00 00 00 00 00 00 00 23 00 00 02 30 05 23 00 00 02 31 19 23 00 00 02 30 07 23 00 00 02 35 b8 23 00 00 02 30 08 23 00 00 02 5c 20 23 00 00 02 5d 04 23 00 00 02 30 0a 23 00 00 02 39 05 23 00 00 02 3a 1d 23 00 00 02 4c 04 23 00 00 02 30 08 23 00 00 02 33 12 23 00 00 02 30 01 23 00 00 02 37 66 23 00 00 02 30 0f 13 78 00 01 11 13 14 00 01 29];
+            sprd,reset-off-sequence = <0x00 0x0a>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x00 0x01 0x05>;
+            sprd,esd-check-mode = <0x01>;
+            sprd,height-mm = <0xe3>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x8e>;
+            sprd,esd-check-enable = <0x00>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x0e>;
+                    vback-porch = <0x20>;
+                    hsync-len = <0x18>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x02>;
+                    hback-porch = <0x50>;
+                    hfront-porch = <0x3c>;
+                };
+            };
+        };
+
+        hx8279_hsx101bf40a_m32a_wuxga_boe101 {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x1e 0x00 0x1e 0x01 0x78>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 14 00 01 28 13 64 00 01 10];
+            sprd,esd-check-period = <0x7d0>;
+            sprd,sleep-out-command = [13 78 00 01 11 13 14 00 01 29];
+            power-off-sequence = <0x01 0x05 0x00 0x00>;
+            sprd,esd-check-regs = <0x0a>;
+            sprd,initial-command = [13 78 00 01 11 13 14 00 01 29];
+            sprd,reset-off-sequence = <0x00 0x0a>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x00 0x01 0x05>;
+            sprd,esd-check-mode = <0x00>;
+            sprd,height-mm = <0xf0>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x96>;
+            sprd,esd-return-code = <0x9c>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x14>;
+                    vback-porch = <0x11>;
+                    hsync-len = <0x0a>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x04>;
+                    hback-porch = <0x28>;
+                    hfront-porch = <0x50>;
+                };
+            };
+        };
+
+        tv101wum_ll2_wuxga {
+            sprd,phy-escape-clock = <0x4e20>;
+            sprd,reset-on-sequence = <0x01 0x05 0x00 0x05 0x01 0x50>;
+            sprd,dsi-lane-number = <0x04>;
+            sprd,phy-bit-clock = <0x10dc68>;
+            sprd,sleep-in-command = [13 01 00 01 00 13 0a 00 01 28 13 78 00 01 10 23 0a 00 02 4f 01];
+            sprd,sleep-out-command = [39 00 00 03 50 5a 0c 23 05 00 02 80 fe 13 78 00 01 11 13 32 00 01 29];
+            power-off-sequence = <0x08 0x14 0x02 0x05 0x03 0x05 0x01 0x00 0x00 0x00>;
+            sprd,initial-command = [39 00 00 03 50 5a 0c 23 05 00 02 80 fe 13 96 00 01 11 13 32 00 01 29];
+            sprd,reset-off-sequence = <0x00 0x05>;
+            sprd,dsi-work-mode = <0x01>;
+            power-on-sequence = <0x00 0x00 0x01 0x00 0x03 0x05 0x02 0x05 0x08 0x14>;
+            sprd,esd-check-mode = <0x00>;
+            sprd,height-mm = <0x79>;
+            sprd,dsi-color-format = "rgb888";
+            sprd,width-mm = <0x44>;
+            sprd,esd-check-enable = <0x00>;
+
+            display-timings {
+                timing0 {
+                    vfront-porch = <0x9b>;
+                    vback-porch = <0x2e>;
+                    hsync-len = <0x08>;
+                    vactive = <0x780>;
+                    clock-frequency = <0x927c000>;
+                    hactive = <0x4b0>;
+                    vsync-len = <0x04>;
+                    hback-porch = <0x0c>;
+                    hfront-porch = <0x1b>;
+                };
+            };
+        };
+    };
+};
