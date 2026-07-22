@@ -10,7 +10,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/interrupt-controller/irq.h>
-#include "ums512.dtsi"
+#include "aidata-ums512.dtsi"
 #include "ums512-t610dvfs.dtsi"
 #include "ums512-t618dvfs.dtsi"
 #include "sc2730.dtsi"
@@ -622,7 +622,7 @@
 		compatible = "ti,bq2560x_chg";
 		reg = <0x6b>;
 		phys = <&hsphy>;
-		monitored-battery = <&battery>;
+		monitored-battery = <&bat>;
 		extcon = <&extcon_gpio>;
 
 		vddvbus: otg-vbus {
@@ -892,7 +892,7 @@
 	status = "okay";
 	sprd-audio-card,name = "sprdphone-sc2730";
 	sprd-audio-card,headset = <&sprd_headset>;
-	sprd,syscon-agcp-ahb = <&agcp_ahb>;
+	sprd,syscon-agcp-ahb = <&audcp_ahb_regs>;
 
 	sprd,spk-ext-pa-names = "ext_spk_r";
 	sprd,spk-ext-pa-gpio = <&ap_gpio 29 GPIO_ACTIVE_HIGH>;

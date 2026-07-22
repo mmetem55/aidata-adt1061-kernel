@@ -1789,55 +1789,122 @@
 
 			pin_controller: pinctrl@32450000 {
 				compatible = "sprd,sharkl5Pro-pinctrl";
-				reg = <0 0x32450000 0 0x10000>;
-				vbc_iis3_0: vbc-iis3-0 {
-					pins = "SHARKL5PRO_IIS_INF0_SYS_SEL";
-					sprd,control = <0xe>;
+				reg = <0x00 0x32450000 0x00 0x10000>;
+
+				pinctrl-names =
+				"gpio_121", "gpio_123", "gpio_124", "gpio_125", "gpio_126",
+				"gpio_144", "gpio_145", "gpio_146", "gpio_147", "gpio_16";
+
+				pinctrl-0 = <&gpio_121>;
+				pinctrl-1 = <&gpio_123>;
+				pinctrl-2 = <&gpio_124>;
+				pinctrl-3 = <&gpio_125>;
+				pinctrl-4 = <&gpio_126>;
+				pinctrl-5 = <&gpio_144>;
+				pinctrl-6 = <&gpio_145>;
+				pinctrl-7 = <&gpio_146>;
+				pinctrl-8 = <&gpio_147>;
+				pinctrl-9 = <&gpio_16>;
+
+				/* Pin Konfigürasyon Alt Düğümleri */
+				gpio_121: keyout0 {
+					pins = "SHARKL5PRO_KEYOUT0";
+					function = "func4";
 				};
 
-				vbc_iism0_0: vbc-iism0-0 {
-					pins = "SHARKL5PRO_IIS_INF0_SYS_SEL";
-					sprd,control = <0xf>;
+				gpio_123: keyout2 {
+					pins = "SHARKL5PRO_KEYOUT2";
+					function = "func4";
+				};
+
+				gpio_124: keyin0 {
+					pins = "SHARKL5PRO_KEYIN0";
+					function = "func4";
+				};
+
+				gpio_125: keyin1 {
+					pins = "SHARKL5PRO_KEYIN1";
+					function = "func4";
+				};
+
+				gpio_126: keyin2 {
+					pins = "SHARKL5PRO_KEYIN2";
+					function = "func4";
+				};
+
+				gpio_144: extint0 {
+					pins = "SHARKL5PRO_EXTINT0";
+					function = "func4";
+				};
+
+				gpio_145: extint1 {
+					pins = "SHARKL5PRO_EXTINT1";
+					function = "func4";
+				};
+
+				gpio_146: sda3 {
+					pins = "SHARKL5PRO_SDA3";
+					function = "func4";
+				};
+
+				gpio_147: scl3 {
+					pins = "SHARKL5PRO_SCL3";
+					function = "func4";
+				};
+
+				gpio_16: rffe1_sda {
+					pins = "SHARKL5PRO_RFFE1_SDA";
+					function = "func4";
 				};
 
 				vbc_iis_to_pad: vbc-iis-to-pad {
 					pins = "SHARKL5PRO_VBC_IIS_INF_SYS_SEL";
-					sprd,control = <0x0>;
+					sprd,control = <0x00>;
 				};
 
 				vbc_iis_to_aon_usb: vbc-iis-to-aon-usb {
 					pins = "SHARKL5PRO_VBC_IIS_INF_SYS_SEL";
-					sprd,control = <0x1>;
+					sprd,control = <0x01>;
+				};
+
+				vbc_iism0_0: vbc-iism0-0 {
+					pins = "SHARKL5PRO_IIS_INF0_SYS_SEL";
+					sprd,control = <0x0f>;
 				};
 
 				vbc_iism0_1: vbc-iism0-1 {
 					pins = "SHARKL5PRO_IIS_INF1_SYS_SEL";
-					sprd,control = <0xf>;
+					sprd,control = <0x0f>;
 				};
 
 				vbc_iism0_3: vbc-iism0-3 {
 					pins = "SHARKL5PRO_IIS_INF3_SYS_SEL";
-					sprd,control = <0xf>;
+					sprd,control = <0x0f>;
 				};
 
 				vbc_iis0_3: vbc-iis0-3 {
 					pins = "SHARKL5PRO_IIS_INF3_SYS_SEL";
-					sprd,control = <0xb>;
+					sprd,control = <0x0b>;
 				};
 
 				vbc_iis1_3: vbc-iis1-3 {
 					pins = "SHARKL5PRO_IIS_INF3_SYS_SEL";
-					sprd,control = <0xc>;
+					sprd,control = <0x0c>;
 				};
 
 				vbc_iis2_3: vbc-iis2-3 {
 					pins = "SHARKL5PRO_IIS_INF3_SYS_SEL";
-					sprd,control = <0xd>;
+					sprd,control = <0x0d>;
+				};
+
+				vbc_iis3_0: vbc-iis3-0 {
+					pins = "SHARKL5PRO_IIS_INF0_SYS_SEL";
+					sprd,control = <0x0e>;
 				};
 
 				vbc_iis3_3: vbc-iis3-3 {
 					pins = "SHARKL5PRO_IIS_INF3_SYS_SEL";
-					sprd,control = <0xe>;
+					sprd,control = <0x0e>;
 				};
 			};
 
