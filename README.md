@@ -23,24 +23,21 @@ The purpose of this repository is to:
 
 ## Building ##
 
+Use Ubuntu 20.04 LTS for the best result
+
 ```bash
 git clone https://github.com/mmetem55/aidata-adt1061-kernel.git
 cd aidata-adt1061-kernel
 ```
 
 ```bash
-export ARCH=arm64
-export CROSS_COMPILE=aarch64-linux-android-
-```
-
-```bash
+chmod +x build-aidata-adt1061.sh
 chmod +x scripts/*
 chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh
 ```
 
 ```bash
-make aidata_adt1061_sharkl5Pro_defconfig
-make -j$(nproc)
+./build-aidata-adt1061.sh
 ```
 
 ## Status ##
