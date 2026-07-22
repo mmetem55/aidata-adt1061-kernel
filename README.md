@@ -22,21 +22,17 @@ cd aidata-adt1061-kernel
 
 ### Download and extract the prebuilt toolchain ###
 ```bash
-cd prebuilts
-mkdir -p gcc clang
+mkdir -p prebuits && cd prebuilts && mkdir -p gcc clang
 git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 gcc/
 git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 gcc/
-mkdir -p clang/host/linux-x86
-cd clang/host/linux-x86
+mkdir -p clang/host/linux-x86 && cd clang/host/linux-x86
 curl -L "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/f8901db697a294e418813287043562caa29b4614/clang-r353983c.tar.gz" | tar -xz
 cd ../../../../
 ```
 
 ### Script permission configuration ###
 ```bash
-chmod +x build-aidata-adt1061.sh
-chmod +x scripts/*
-chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh
+chmod +x build-aidata-adt1061.sh && chmod +x scripts/* && chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh
 ```
 ### Build the kernel ###
 ```bash
