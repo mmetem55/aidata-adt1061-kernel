@@ -27,6 +27,7 @@ git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebui
 git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 prebuilts/gcc/arm-linux-androideabi-4.9
 mkdir -p prebuilts/clang/host/linux-x86/clang-r353983c
 curl -L "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/f8901db697a294e418813287043562caa29b4614/clang-r353983c.tar.gz" | tar -xz -C prebuilts/clang/host/linux-x86/clang-r353983c
+cd ../../../..
 ```
 
 ### Script permission configuration ###
