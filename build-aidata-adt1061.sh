@@ -27,8 +27,8 @@ export EXTRA_CMDS=""
 export POST_DEFCONFIG_CMDS="check_defconfig"
 
 # --- Toolchains ---
-export CLANG_PREBUILT_BIN="$(pwd)/prebuilts/clang/host/linux-x86/bin"
-export LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN="$(pwd)/prebuilts/gcc/aarch64-linux-android-4.9/bin"
+export CLANG_PREBUILT_BIN="$(pwd)/prebuilts/clang/host/linux-x86/clang-r353983/bin"
+export LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN="$(pwd)/prebuilts/gcc/arm-linux-androideabi-4.9/bin"
 export LINUX_GCC_CROSS_COMPILE_ARM32_PREBUILTS_BIN="$(pwd)/prebuilts/gcc/arm-linux-androideabi-4.9/bin"
 
 # --- Compilers & LLVM Binutils ---
