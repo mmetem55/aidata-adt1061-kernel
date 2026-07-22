@@ -23,15 +23,18 @@ The purpose of this repository is to:
 
 ## Building
 
-Example build process:
+git clone https://github.com/mmetem55/aidata-adt1061-kernel.git
+
+cd aidata-adt1061-kernel
 
 export ARCH=arm64
 export CROSS_COMPILE=aarch64-linux-android-
 
-make <device_defconfig>
-make -j$(nproc)
+chmod +x scripts/*
+chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh
 
-> Replace `<device_defconfig>` with the correct defconfig for your device.
+make aidata_adt1061_sharkl5Pro_defconfig
+make -j$(nproc)
 
 ## Status
 
