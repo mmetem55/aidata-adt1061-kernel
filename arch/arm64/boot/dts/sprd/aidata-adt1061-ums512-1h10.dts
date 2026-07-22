@@ -847,8 +847,8 @@
 	gpio-names = "aud_int_all";
 
 	/* SoC GPIO */
-	mic-gpios = <&gpio 25 GPIO_ACTIVE_HIGH>; /* 0x19 = GPIO 25 */
-	lr-gpios = <&gpio 26 GPIO_ACTIVE_HIGH>;  /* 0x1a = GPIO 26 */
+	mic-gpios = <&ap_gpio 25 GPIO_ACTIVE_HIGH>; /* 0x19 = GPIO 25 */
+	lr-gpios = <&ap_gpio 26 GPIO_ACTIVE_HIGH>;  /* 0x1a = GPIO 26 */
 
 	/* NVMEM */
 	nvmem-cells = <&headset_adc_fir>, <&headset_adc_sec>;
