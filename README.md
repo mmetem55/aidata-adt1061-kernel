@@ -22,7 +22,7 @@ cd aidata-adt1061-kernel
 
 ### Download and extract the prebuilt toolchain ###
 ```bash
-mkdir -p prebuits && cd prebuilts && mkdir -p gcc clang
+mkdir -p prebuilts && cd prebuilts && mkdir -p gcc clang
 git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 gcc/
 git clone -b android-10.0.0_r47 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 gcc/
 mkdir -p clang/host/linux-x86 && cd clang/host/linux-x86
