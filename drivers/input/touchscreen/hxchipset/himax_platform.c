@@ -928,6 +928,7 @@ static const struct dev_pm_ops himax_common_pm_ops = {
 #ifdef CONFIG_OF
 static const struct of_device_id himax_match_table[] = {
 	{.compatible = "himax,hxcommon" },
+	{.compatible = "elink,himax"   },
 	{},
 };
 #else

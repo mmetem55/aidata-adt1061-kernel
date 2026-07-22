@@ -598,6 +598,7 @@ static const struct of_device_id silead_ts_of_match[] = {
 	{ .compatible = "silead,gsl3670" },
 	{ .compatible = "silead,gsl3675" },
 	{ .compatible = "silead,gsl3692" },
+	{ .compatible = "elink,silead"   },
 	{ },
 };
 MODULE_DEVICE_TABLE(of, silead_ts_of_match);

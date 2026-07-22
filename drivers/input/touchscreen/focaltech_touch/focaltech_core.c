@@ -884,7 +884,6 @@ static const struct i2c_device_id fts_ts_id[] = {
 };
 MODULE_DEVICE_TABLE(i2c, fts_ts_id);
 
-/* DTS tablosuna "elink,focaltech" eklendi */
 static struct of_device_id fts_match_table[] = {
     { .compatible = "elink,focaltech", },
     { .compatible = "focaltech,fts", },
