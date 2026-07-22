@@ -295,7 +295,7 @@
 		usb_5v-gpios = <&ap_gpio 112 GPIO_ACTIVE_HIGH>; /* 0x70 -> Pin 112 */
 	};
 
-	backlight {
+	backlight: backlight {
 		compatible = "sprd,sharkl5pro-backlight";
 		status = "okay";
 
