@@ -49,7 +49,7 @@ This project is intended for developers interested in Android kernel development
 ## Credits ##
 
 - Linux Kernel Developers
-- Spreadtrum/Unisoc Develop```bashers
+- Spreadtrum/Unisoc Develop
 - strongtz/linux-sprd
 - mmetem55
 
