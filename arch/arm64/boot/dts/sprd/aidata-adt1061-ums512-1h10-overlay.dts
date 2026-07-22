@@ -1,0 +1,34 @@
+/dts-v1/;
+/plugin/;
+
+&reserved_memory {
+	fd_reserved: faceid-mem@efaae000 {
+		reg = <0x0 0xefaae000 0x0 0x00f00000>;
+	};
+
+	vdsp_reserved: vdsp-mem@f09ae000 {
+		reg = <0x0 0xf09ae000 0x0 0x03700000>;
+	};
+};
+
+&ion {
+	heap@4 {
+		reg = <4>;
+		label = "carveout_fd";
+		type = <2>;
+		memory-region = <&fd_reserved>;
+	};
+
+	heap@5 {
+		reg = <5>;
+		label = "carveout_vdsp";
+		type = <2>;
+		memory-region = <&vdsp_reserved>;
+	};
+};
+
+&ddr_dfs {
+	sprd-scene = "boost", "lcdon", "lcdoff", "camlow",
+		"camhigh", "camveryhigh", "faceid";
+	sprd-freq = <1333 768 256 384 512 1333 1333>;
+};
