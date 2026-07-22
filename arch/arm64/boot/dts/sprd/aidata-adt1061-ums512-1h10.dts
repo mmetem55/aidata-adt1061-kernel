@@ -728,13 +728,11 @@
 
 	panel: panel {
 		compatible = "sprd,generic-mipi-panel";
+		sprd,backlight = <&backlight>;
 		#address-cells = <1>;
 		#size-cells = <0>;
 		reg = <0>;
 
-		avdd-gpio = <&ap_gpio 132 GPIO_ACTIVE_HIGH>;
-		avee-gpio = <&ap_gpio 133 GPIO_ACTIVE_HIGH>;
-		reset-gpio = <&ap_gpio 50 GPIO_ACTIVE_HIGH>;
 		port {
 			reg = <1>;
 			panel_in: endpoint {
