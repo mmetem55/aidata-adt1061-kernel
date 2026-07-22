@@ -86,10 +86,14 @@ static int fts_get_chip_types(
         }
     }
 
-    if (ctype_entries >= 2)
-        ts_data->ic_info.ids = ctype[1];
+    if (i < ctype_entries) {
+        ts_data->ic_info.ids = ctype[i];
+        return 0;
+    }
 
-    return 0;
+    FTS_ERROR("unsupported chip id: 0x%02x%02x", id_h, id_l);
+    return -ENODEV;
+
 }
 
 static int fts_get_ic_information(struct fts_ts_data *ts_data)

@@ -583,13 +583,6 @@
 		gpios = <&ap_gpio 145 GPIO_ACTIVE_HIGH &ap_gpio 144 GPIO_ACTIVE_HIGH>;
 	};
 
-	novatek_touch@62 {
-		compatible = "elink,novatek";
-		reg = <0x62>;
-		irq-gpios = <&ap_gpio 144 GPIO_ACTIVE_HIGH>;
-		rst-gpios = <&ap_gpio 145 GPIO_ACTIVE_HIGH>;
-	};
-
 	silead_touch@40 {
 		compatible = "elink,silead";
 		reg = <0x40>;
