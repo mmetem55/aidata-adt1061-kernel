@@ -27,9 +27,9 @@ export EXTRA_CMDS=""
 export POST_DEFCONFIG_CMDS="check_defconfig"
 
 # --- Toolchains ---
-export CLANG_PREBUILT_BIN="/prebuilts/clang/host/linux-x86/clang-r353983c/bin"
-export LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN="/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin"
-export LINUX_GCC_CROSS_COMPILE_ARM32_PREBUILTS_BIN="/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin"
+export CLANG_PREBUILT_BIN="$(pwd)/prebuilts/clang/host/linux-x86/bin"
+export LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN="$(pwd)/prebuilts/gcc/aarch64-linux-android-4.9/bin"
+export LINUX_GCC_CROSS_COMPILE_ARM32_PREBUILTS_BIN="$(pwd)/prebuilts/gcc/arm-linux-androideabi-4.9/bin"
 
 # --- Compilers & LLVM Binutils ---
 export CC=clang
@@ -53,7 +53,7 @@ export PATH="$CLANG_PREBUILT_BIN:$LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN:$LINUX_G
 chmod +x scripts/* 2>/dev/null || true
 chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh 2>/dev/null || true
 
-# --- GCC Deprecation Spam Filtresi ---
+
 filter_gcc_warning() {
     grep -v -E "Android GCC has been deprecated|GCC_4_9_DEPRECATION" >&2 || true
 }
