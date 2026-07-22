@@ -44,8 +44,6 @@ chmod +x arch/arm64/kernel/vdso/gen_vdso_offsets.sh
 
 🟢 Active development
 
-This project is intended for developers interested in Android kernel development, reverse engineering, and device customization.
-
 ## Credits ##
 
 - Linux Kernel Developers
