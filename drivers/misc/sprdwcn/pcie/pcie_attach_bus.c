@@ -89,6 +89,11 @@ int pcie_get_bus_status(void)
 	return wcn_pcie_get_bus_status();
 }
 
+static int pcie_get_hwintf_type(void)
+{
+	return HW_TYPE_PCIE;
+}
+
 static unsigned int pcie_get_carddump_status(void)
 {
 	return sprd_pcie_get_carddump_status();
@@ -142,6 +147,7 @@ static struct sprdwcn_bus_ops pcie_bus_ops = {
 	.write_l = pcie_write32,
 	.update_bits = pcie_update_bits,
 	.get_bus_status = pcie_get_bus_status,
+	.get_hwintf_type = pcie_get_hwintf_type,
 	.get_carddump_status = pcie_get_carddump_status,
 	.set_carddump_status = pcie_set_carddump_status,
 	.get_pm_policy = pcie_get_aspm_policy,

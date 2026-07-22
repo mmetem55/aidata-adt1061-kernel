@@ -4,6 +4,7 @@
 #define HW_TYPE_SDIO 0
 #define HW_TYPE_PCIE 1
 #define HW_TYPE_SIPC 2
+#define HW_TYPE_INVALIED 0xff
 #define CHN_MAX_NUM 32
 #define PUB_HEAD_RSV 4
 
@@ -104,7 +105,7 @@ struct sprdwcn_bus_ops {
 	int (*chn_deinit)(struct mchn_ops_t *ops);
 
 	int (*get_bus_status)(void);
-
+	int (*get_hwintf_type)(void);
 	/*
 	 * For sdio:
 	 * list_alloc and list_free only tx available.
@@ -205,6 +206,17 @@ int sprdwcn_bus_get_status(void)
 		return 0;
 
 	return bus_ops->get_bus_status();
+}
+
+static inline
+int sprdwcn_bus_get_hwintf_type(void)
+{
+	struct sprdwcn_bus_ops *bus_ops = get_wcn_bus_ops();
+
+	if (!bus_ops || !bus_ops->get_hwintf_type)
+		return HW_TYPE_INVALIED;
+
+	return bus_ops->get_hwintf_type();
 }
 
 static inline

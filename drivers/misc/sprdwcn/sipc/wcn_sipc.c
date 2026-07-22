@@ -342,6 +342,11 @@ static unsigned long long wcn_sipc_get_rxcnt(void)
 	return wcn_get_cp2_comm_rx_count();
 }
 
+static int wcn_sipc_get_hwintf_type(void)
+{
+	return HW_TYPE_SIPC;
+}
+
 static int wcn_sipc_chn_init(struct mchn_ops_t *ops)
 {
 	int ret = -1;
@@ -475,6 +480,7 @@ static struct sprdwcn_bus_ops sipc_bus_ops = {
 	.get_carddump_status = wcn_sipc_get_status,
 	.set_carddump_status = wcn_sipc_set_status,
 	.get_rx_total_cnt = wcn_sipc_get_rxcnt,
+	.get_hwintf_type = wcn_sipc_get_hwintf_type,
 
 };
 

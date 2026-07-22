@@ -15,6 +15,7 @@
 
 #include <linux/kernel.h>
 #include <linux/mutex.h>
+#include <linux/notifier.h>
 #include <linux/slab.h>
 #include <linux/spinlock.h>
 
@@ -38,6 +39,9 @@ struct chn_info_t {
 };
 
 static struct sprdwcn_bus_ops *wcn_bus_ops;
+
+ATOMIC_NOTIFIER_HEAD(wcn_reset_notifier_list);
+EXPORT_SYMBOL(wcn_reset_notifier_list);
 
 static struct chn_info_t g_chn_info;
 static struct chn_info_t *chn_info(void)

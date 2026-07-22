@@ -30,6 +30,8 @@ config ADJD_S311
 	 This driver can also be built as a module.  If so, the module
 	 will be called adjd_s311.
 
+source "drivers/iio/light/ams_tcs3430/Kconfig"
+
 config AL3320A
 	tristate "AL3320A ambient light sensor"
 	depends on I2C

@@ -185,3 +185,12 @@ obj-$(CONFIG_FSI)		+= fsi/
 obj-$(CONFIG_TEE)		+= tee/
 obj-$(CONFIG_MULTIPLEXER)	+= mux/
 obj-$(CONFIG_TRUSTY)      	+= trusty/
+
+# Spreadtrum NPU drivers
+obj-y				+= npu/
+
+# Spreadtrum WCN drivers
+obj-y				+= wcn/
+
+# Spreadtrum camera drivers
+obj-y				+= camera/

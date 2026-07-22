@@ -69,6 +69,11 @@ static int sdio_writebyte(unsigned int addr, unsigned char val)
 	return sdiohal_aon_writeb(addr, val);
 }
 
+static int sdio_get_hwintf_type(void)
+{
+	return HW_TYPE_SDIO;
+}
+
 static unsigned int sdio_get_carddump_status(void)
 {
 	return sdiohal_get_carddump_status();
@@ -124,6 +129,7 @@ static struct sprdwcn_bus_ops sdiohal_bus_ops = {
 	.writebyte = sdio_writebyte,
 	.read_l = sdiohal_readl,
 	.write_l = sdiohal_writel,
+	.get_hwintf_type = sdio_get_hwintf_type,
 
 	.get_carddump_status = sdio_get_carddump_status,
 	.set_carddump_status = sdio_set_carddump_status,

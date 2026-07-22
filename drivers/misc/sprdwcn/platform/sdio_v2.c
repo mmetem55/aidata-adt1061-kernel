@@ -306,6 +306,11 @@ static int sdio_writebyte(unsigned int addr, unsigned char val)
 	return sdiom_aon_writeb(addr, val);
 }
 
+static int sdio_get_hwintf_type(void)
+{
+	return HW_TYPE_SDIO;
+}
+
 static unsigned int sdio_get_carddump_status(void)
 {
 	return sdiom_get_carddump_status();
@@ -360,6 +365,7 @@ static struct sprdwcn_bus_ops sdiom_bus_ops = {
 	.direct_write = sdio_direct_write,
 	.readbyte = sdio_readbyte,
 	.writebyte = sdio_writebyte,
+	.get_hwintf_type = sdio_get_hwintf_type,
 
 	.get_carddump_status = sdio_get_carddump_status,
 	.set_carddump_status = sdio_set_carddump_status,

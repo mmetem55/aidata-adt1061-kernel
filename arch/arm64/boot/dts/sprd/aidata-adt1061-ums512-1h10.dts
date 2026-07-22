@@ -646,6 +646,7 @@
 
 &dpu {
 	status = "okay";
+	sprd,backlight = <&backlight>;
 };
 
 &iommu_dispc {
